@@ -1,15 +1,27 @@
 default: &default
-  adapter: mysql2
-  collation: utf8mb4_unicode_ci
-  database: <%= ENV['DB'] %>
-  encoding: utf8mb4
-  host: <%= ENV['DB_HOST'] %>
-  username: <%= ENV['DB_USERNAME']  %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  pool: 5
-  port: <%= ENV['DB_PORT'] %>
-  reconnect: true
-  timeout: 5000
 
 production:
-  <<: *default
+  shard0:
+    adapter: mysql2
+    collation: utf8mb4_unicode_ci
+    database: foo
+    encoding: utf8mb4
+    host: shard0
+    username: root
+    password: shard0
+    pool: 5
+    port: 3306
+    reconnect: true
+    timeout: 5000
+  shard1:
+    adapter: mysql2
+    collation: utf8mb4_unicode_ci
+    database: foo
+    encoding: utf8mb4
+    host: shard1
+    username: root
+    password: shard1
+    pool: 5
+    port: 3307
+    reconnect: true
+    timeout: 5000

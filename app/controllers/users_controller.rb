@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
+  around_action :choose_shard
+
   def index
-    users = User.all
-    render json: {
-      users: users
-    }
+    response = {}
+    response['users'] = User.all
+    render json: response
+  end
+
+  def choose_shard
+    ActiveRecord::Base.connected_to(role: :writing) do
+      yield
+    end
   end
 end

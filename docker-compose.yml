@@ -23,6 +23,7 @@ services:
       - '3002:3307'
     environment:
       MYSQL_ROOT_PASSWORD: shard1
+      MYSQL_TCP_PORT: 3307
 
   api:
     image: foo
