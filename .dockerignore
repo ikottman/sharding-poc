@@ -1,0 +1,8 @@
+node_modules
+.git
+database/
+.vscode/
+tmp/
+vendor/
+.bundle
+log/

@@ -1,0 +1,15 @@
+default: &default
+  adapter: mysql2
+  collation: utf8mb4_unicode_ci
+  database: <%= ENV['DB'] %>
+  encoding: utf8mb4
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME']  %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  pool: 5
+  port: <%= ENV['DB_PORT'] %>
+  reconnect: true
+  timeout: 5000
+
+production:
+  <<: *default
