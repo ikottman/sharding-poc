@@ -1,5 +1,3 @@
-default: &default
-
 production:
   shard0:
     adapter: mysql2
